@@ -3,6 +3,7 @@ package com.sso.oauth.controller;
 
 import com.sso.common.entity.Result;
 import com.sso.common.entity.StatusCode;
+import com.sso.common.exception.GlobalExecption;
 import com.sso.oauth.service.UserLoginService;
 import com.sso.oauth.util.AuthToken;
 import com.sso.oauth.util.CookieUtil;
@@ -34,16 +35,16 @@ public class UserLoginController {
     public Result login(String username, String password, HttpServletResponse response){
         //校验参数
         if (StringUtils.isEmpty(username)){
-            throw new RuntimeException("请输入用户名");
+            throw new GlobalExecption("请输入用户名");
         }
         if (StringUtils.isEmpty(password)){
-            throw new RuntimeException("请输入密码");
+            throw new GlobalExecption("请输入密码");
         }
         AuthToken authToken = null;
         try {
             authToken = userLoginService.login(username, password, clientId, clientSecret);
         } catch (Exception e) {
-            throw new RuntimeException("dd");
+            throw new GlobalExecption("登录信息有问题");
         }
         this.saveJtiToCookie(String.valueOf(3600),response);
 

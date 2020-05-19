@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="changgou_common" />
         <module name="sso-common" />
+        <module name="sso-gateway" />
+        <module name="sso-inventory" />
         <module name="sso-oauth" />
         <module name="sso-registry" />
       </profile>
@@ -15,6 +17,8 @@
     <bytecodeTargetLevel>
       <module name="changgou_common" target="1.5" />
       <module name="sso-common" target="1.8" />
+      <module name="sso-gateway" target="1.8" />
+      <module name="sso-inventory" target="1.8" />
       <module name="sso-oauth" target="1.8" />
       <module name="sso-parent" target="1.8" />
       <module name="sso-registry" target="1.8" />

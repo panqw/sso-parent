@@ -1,0 +1,26 @@
+server:
+  port: 9123
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone:  http://127.0.0.1:9100/eureka/
+
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+         routes:
+         - id: oauth
+           uri: lb://oauth
+           predicates:
+           - Path=/oauth/**
+           filters:
+           - StripPrefix=1
+         discovery:
+           locator:
+             enabled: true
