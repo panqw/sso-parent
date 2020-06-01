@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -9,6 +10,7 @@
         <module name="changgou_common" />
         <module name="sso-common" />
         <module name="sso-gateway" />
+        <module name="sso-goods" />
         <module name="sso-inventory" />
         <module name="sso-oauth" />
         <module name="sso-registry" />
@@ -18,10 +20,12 @@
       <module name="changgou_common" target="1.5" />
       <module name="sso-common" target="1.8" />
       <module name="sso-gateway" target="1.8" />
+      <module name="sso-goods" target="1.8" />
       <module name="sso-inventory" target="1.8" />
       <module name="sso-oauth" target="1.8" />
       <module name="sso-parent" target="1.8" />
       <module name="sso-registry" target="1.8" />
+      <module name="sso-spring" target="1.8" />
       <module name="sso_common" target="1.5" />
     </bytecodeTargetLevel>
   </component>

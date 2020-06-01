@@ -14,6 +14,9 @@ spring:
     name: gateway
   cloud:
     gateway:
+         discovery:
+               locator:
+                 enabled: true
          routes:
          - id: oauth
            uri: lb://oauth
@@ -21,6 +24,3 @@ spring:
            - Path=/oauth/**
            filters:
            - StripPrefix=1
-         discovery:
-           locator:
-             enabled: true
