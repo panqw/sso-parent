@@ -1,4 +1,4 @@
-package com.sso.goods.dao;
+package com.sso.goods;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
