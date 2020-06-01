@@ -1,7 +1,8 @@
-package com.sso.goods;
+package com.sso.goods.dao;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -54,6 +55,7 @@ public class CodeGenerator {
         gc.setServiceName("%sService");
         gc.setServiceImplName("%sServiceImpl");
         gc.setControllerName("%sController");
+        gc.setIdType(IdType.AUTO);
         mpg.setGlobalConfig(gc);
 
 
