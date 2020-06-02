@@ -1,5 +1,6 @@
 server:
   port: 9010
+
 spring:
   application:
     name: goods
@@ -17,7 +18,7 @@ spring:
     username: root
     password:
 
- eureka:
+eureka:
    instance:
      prefer-ip-address: true
    client:

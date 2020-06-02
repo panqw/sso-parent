@@ -1,8 +1,8 @@
 package com.sso.goods.service.impl;
 
-import com.sso.goods.entity.TbSku;
-import com.sso.goods.dao.TbSkuMapper;
-import com.sso.goods.service.ITbSkuService;
+import com.sso.goods.entity.Sku;
+import com.sso.goods.dao.SkuMapper;
+import com.sso.goods.service.SkuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-06-01
  */
 @Service
-public class TbSkuServiceImpl extends ServiceImpl<TbSkuMapper, TbSku> implements ITbSkuService {
+public class TbSkuServiceImpl extends ServiceImpl<SkuMapper, Sku> implements SkuService {
 
 }
