@@ -15,6 +15,7 @@
         <module>sso-inventory</module>
         <module>sso-gateway</module>
         <module>sso-goods</module>
+        <module>sso-file</module>
     </modules>
 
     <parent>

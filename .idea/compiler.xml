@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="changgou_common" />
         <module name="sso-common" />
+        <module name="sso-file" />
         <module name="sso-gateway" />
         <module name="sso-goods" />
         <module name="sso-inventory" />
@@ -19,6 +20,7 @@
     <bytecodeTargetLevel>
       <module name="changgou_common" target="1.5" />
       <module name="sso-common" target="1.8" />
+      <module name="sso-file" target="1.8" />
       <module name="sso-gateway" target="1.8" />
       <module name="sso-goods" target="1.8" />
       <module name="sso-inventory" target="1.8" />

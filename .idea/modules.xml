@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/sso-common/sso-common.iml" filepath="$PROJECT_DIR$/sso-common/sso-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sso-file/sso-file.iml" filepath="$PROJECT_DIR$/sso-file/sso-file.iml" />
       <module fileurl="file://$PROJECT_DIR$/sso-gateway/sso-gateway.iml" filepath="$PROJECT_DIR$/sso-gateway/sso-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/sso-goods/sso-goods.iml" filepath="$PROJECT_DIR$/sso-goods/sso-goods.iml" />
       <module fileurl="file://$PROJECT_DIR$/sso-inventory/sso-inventory.iml" filepath="$PROJECT_DIR$/sso-inventory/sso-inventory.iml" />

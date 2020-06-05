@@ -1,5 +1,5 @@
 server:
-  port: 9200
+  port: 9202
 spring:
   application:
     name: oauth
@@ -23,7 +23,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone:  http://127.0.0.1:9100/eureka/
+      defaultZone:  http://127.0.0.1:9200/eureka/
 
 auth:
   ttl: 3600  #token存储到redis的过期时间
