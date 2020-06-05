@@ -1,0 +1,15 @@
+server:
+     port: 9203
+
+spring:
+   servlet:
+     multipart:
+       max‐file‐size: 10MB
+       max‐request‐size: 10MB
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone:  http://127.0.0.1:9200/eureka/
