@@ -16,6 +16,7 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 /**
+ * @author panqw
  * @date 2020/5/20 
  */
 
@@ -27,32 +28,29 @@ public class AccsessFilter implements GlobalFilter ,Ordered{
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String path = exchange.getRequest().getPath().toString();
-        if (pathMatcher.match("/oauth/**", path)){
+        if (pathMatcher.match("/oauth/**", path)||
+                pathMatcher.match("/goods/**",path)){
            return chain.filter(exchange);
         }
         String authToken = this.verifyToken(exchange.getRequest());
 
-        if (authToken==null){
-            return Mono.error(()->new GlobalExecption("出错拉"));
+        if (StringUtils.isBlank(authToken)){
+            throw new GlobalExecption("token为空");
         }
 
         return chain.filter(exchange);
     }
 
     private String verifyToken(ServerHttpRequest request) {
-        List<String> stringList = request.getHeaders().get(HttpHeaders.AUTHORIZATION);
+        String param = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
         String authToken = null;
-        if (stringList != null) {
-            String param = stringList.get(0);
-            if (StringUtils.isNotBlank(param)) {
-                authToken = param.substring("Bearer".length()).trim();
-            }
+        if (StringUtils.isNotBlank(param)) {
+            authToken = param.substring("Bearer".length()).trim();
         }
+
         if (StringUtils.isBlank(authToken)) {
-            stringList = request.getQueryParams().get("access_token");
-            if (stringList != null) {
-                authToken = stringList.get(0);
-            }
+            authToken = request.getQueryParams().getFirst("access_token");
+
         }
 
         return authToken;

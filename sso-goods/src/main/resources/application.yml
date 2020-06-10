@@ -16,7 +16,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/goods?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&serverTimezone=UTC
     username: root
-    password:
+    password: admin
 
 eureka:
    instance:
@@ -24,5 +24,8 @@ eureka:
    client:
      service-url:
        defaultZone:  http://127.0.0.1:9200/eureka/
+mybatis:
+  configuration:
+    default-statement-timeout: 10000
 
 

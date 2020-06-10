@@ -34,7 +34,7 @@ public class BrandController {
 
 
     @PostMapping("/findBrandList")
-    public Result findBrandList(@RequestBody BrandCommand command){
+    public Result findBrandList( BrandCommand command){
 
         List<Brand> brandList = brandService.findBrandList(command);
         return new Result(true,200,"success",brandList);
