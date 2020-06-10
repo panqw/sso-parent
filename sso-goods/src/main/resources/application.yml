@@ -24,8 +24,6 @@ eureka:
    client:
      service-url:
        defaultZone:  http://127.0.0.1:9200/eureka/
-mybatis:
-  configuration:
-    default-statement-timeout: 10000
+
 
 
