@@ -31,7 +31,7 @@ public class ExcelController {
             return new Result(false,500,"上传文件失败");
         }
 
-        final String fileName ="C:/Users/Administrator/Desktop/"+file;
+        final String fileName = "C:/Users/Administrator/Desktop/"+file;
 
         InputStream inputStream = null;
         Result result = null;
