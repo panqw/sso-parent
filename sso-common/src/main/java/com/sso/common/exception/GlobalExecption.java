@@ -8,9 +8,9 @@ package com.sso.common.exception;
  */
 public class GlobalExecption extends RuntimeException {
 
-    protected String code;
+    private String code;
 
-    protected String message;
+    private String message;
     public GlobalExecption() {
     }
     public GlobalExecption(String code, String message) {

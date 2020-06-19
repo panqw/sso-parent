@@ -14,8 +14,8 @@
         <module>sso-common</module>
         <module>sso-inventory</module>
         <module>sso-gateway</module>
-        <module>sso-goods</module>
         <module>sso-file</module>
+        <module>sso-service</module>
     </modules>
 
     <parent>
@@ -41,6 +41,7 @@
         <poi-ooxml.version>4.0.1</poi-ooxml.version>
         <poi.version>4.0.1</poi.version>
         <xxl-job-core.version>2.0.2</xxl-job-core.version>
+        <openfeign.version>2.2.0.RELEASE</openfeign.version>
     </properties>
 
     <dependencyManagement>

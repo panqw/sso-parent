@@ -21,6 +21,10 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author panqw
+ * @date 2020/6/19 9:54
+ */
 @Service
 public class UserLoginServiceImpl implements UserLoginService {
 

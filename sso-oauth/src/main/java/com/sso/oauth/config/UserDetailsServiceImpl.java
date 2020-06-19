@@ -1,6 +1,7 @@
 package com.sso.oauth.config;
 
 
+import com.sso.oauth.feign.UserFeignController;
 import com.sso.oauth.util.UserJwt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -10,7 +11,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     ClientDetailsService clientDetailsService;
-
+    @Autowired
+    private UserFeignController userFeign;
     /****
      * 自定义授权认证
      * @param username
@@ -51,12 +52,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (StringUtils.isEmpty(username)) {
             return null;
         }
-
-        //根据用户名查询用户信息
-        String pwd = new BCryptPasswordEncoder().encode("itheima");
+        com.sso.user.model.User user = userFeign.findUserInfo(username);
+//        //根据用户名查询用户信息
+//        String pwd = new BCryptPasswordEncoder().encode("itheima");
         //创建User对象
         String permissions = "goods_list,seckill_list";
-        UserJwt userDetails = new UserJwt(username,pwd,AuthorityUtils.commaSeparatedStringToAuthorityList(permissions));
+        UserJwt userDetails = new UserJwt(username,user.getPassword(),AuthorityUtils.commaSeparatedStringToAuthorityList(permissions));
 
         return userDetails;
     }

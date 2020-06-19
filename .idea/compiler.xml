@@ -15,6 +15,7 @@
         <module name="sso-inventory" />
         <module name="sso-oauth" />
         <module name="sso-registry" />
+        <module name="sso-user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -27,7 +28,9 @@
       <module name="sso-oauth" target="1.8" />
       <module name="sso-parent" target="1.8" />
       <module name="sso-registry" target="1.8" />
+      <module name="sso-service" target="1.8" />
       <module name="sso-spring" target="1.8" />
+      <module name="sso-user" target="1.8" />
       <module name="sso_common" target="1.5" />
     </bytecodeTargetLevel>
   </component>

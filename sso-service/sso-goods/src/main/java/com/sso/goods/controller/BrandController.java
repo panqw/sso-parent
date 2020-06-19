@@ -3,6 +3,7 @@ package com.sso.goods.controller;
 
 import com.sso.common.command.BaseCommand;
 import com.sso.common.entity.Result;
+import com.sso.common.entity.StatusCode;
 import com.sso.common.exception.GlobalExecption;
 import com.sso.goods.entity.Brand;
 import com.sso.goods.entity.command.BrandCommand;
@@ -37,14 +38,14 @@ public class BrandController {
     public Result findBrandList( BrandCommand command){
 
         List<Brand> brandList = brandService.findBrandList(command);
-        return new Result(true,200,"success",brandList);
+        return new Result(true, StatusCode.OK,"success",brandList);
     }
 
     @PostMapping("/findById")
     public Result findById(@RequestBody BrandCommand command){
         Brand brand = brandService.findById(command.getId());
 
-        return new Result(true,200,"success",brand);
+        return new Result(true,StatusCode.OK,"success",brand);
     }
 
     @PostMapping("/createBrand")
@@ -55,7 +56,7 @@ public class BrandController {
             throw new GlobalExecption("插入失败");
         }
 
-        return new Result(true,200,"success");
+        return new Result(true,StatusCode.OK,"success");
     }
 
 
