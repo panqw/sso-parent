@@ -2,6 +2,9 @@ package com.sso.goods.service;
 
 import com.sso.goods.entity.Category;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.sso.goods.entity.command.CategoryCommand;
+
+import javax.validation.Valid;
 
 /**
  * <p>
@@ -13,4 +16,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface CategoryService extends IService<Category> {
 
+    Integer addCategory(@Valid CategoryCommand command);
+
+    Integer updateCategory(@Valid CategoryCommand command);
 }

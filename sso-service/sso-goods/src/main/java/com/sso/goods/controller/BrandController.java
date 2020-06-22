@@ -8,6 +8,7 @@ import com.sso.common.exception.GlobalExecption;
 import com.sso.goods.entity.Brand;
 import com.sso.goods.entity.command.BrandCommand;
 import com.sso.goods.service.BrandService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +36,7 @@ public class BrandController {
 
 
     @PostMapping("/findBrandList")
-    public Result findBrandList( BrandCommand command){
+    public Result findBrandList(@RequestBody BrandCommand command){
 
         List<Brand> brandList = brandService.findBrandList(command);
         return new Result(true, StatusCode.OK,"success",brandList);
@@ -48,12 +49,12 @@ public class BrandController {
         return new Result(true,StatusCode.OK,"success",brand);
     }
 
-    @PostMapping("/createBrand")
-    public Result createBrand(@RequestBody  @Valid  BrandCommand command){
-
-        Integer num = brandService.createBrand(command);
-        if (num<=0){
-            throw new GlobalExecption("插入失败");
+    @PostMapping("/addOrUpdateBrand")
+    public Result addOrUpdateBrand(@RequestBody@Valid BrandCommand command){
+        if (null==command.getId()) {
+            brandService.addBrand(command);
+        }else {
+            brandService.updateBrand(command);
         }
 
         return new Result(true,StatusCode.OK,"success");

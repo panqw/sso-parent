@@ -5,6 +5,7 @@ import com.sso.goods.entity.Brand;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.sso.goods.entity.command.BrandCommand;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -25,5 +26,7 @@ public interface BrandService extends IService<Brand> {
 
     Brand findById(Integer id);
 
-    Integer createBrand(BrandCommand command);
+    Integer addBrand(BrandCommand command);
+
+    Integer updateBrand(@Valid BrandCommand command);
 }

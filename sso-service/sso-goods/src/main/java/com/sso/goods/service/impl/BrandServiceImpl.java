@@ -1,18 +1,19 @@
 package com.sso.goods.service.impl;
 
-import cn.hutool.core.bean.BeanUtil;
-import com.baomidou.mybatisplus.core.toolkit.BeanUtils;
+
 import com.github.pagehelper.PageHelper;
 import com.sso.common.exception.GlobalExecption;
+import com.sso.common.utils.BeanUtils;
 import com.sso.goods.entity.Brand;
 import com.sso.goods.dao.BrandMapper;
 import com.sso.goods.entity.command.BrandCommand;
 import com.sso.goods.service.BrandService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.apache.commons.lang.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
 
@@ -37,11 +38,8 @@ public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand> implements
      */
     @Override
     public List<Brand> findBrandList(BrandCommand command) {
-
         PageHelper.startPage(command.getPage(), command.getRows());
-        List<Brand> brandList = brandMapper.queryBrandList(command);
-
-        return brandList;
+        return brandMapper.queryBrandList(command);
     }
 
     /**
@@ -52,24 +50,32 @@ public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand> implements
     @Override
     public Brand findById(Integer id) {
         Brand brand = brandMapper.selectById(id);
-        if (brand != null) {
+        if (brand == null) {
             throw new GlobalExecption("无此品牌");
         }
         return brand;
     }
 
+    @Transactional
     @Override
-    public Integer createBrand(BrandCommand command) {
-        Brand brand = new Brand();
-        BeanUtil.copyProperties(command,brand);
+    public Integer addBrand(BrandCommand command) {
+        Brand brand = BeanUtils.copyProperties(command, Brand.class);
         brand.setCreateBy("PQW");
         brand.setUpdateBy("PQW");
         Date date = new Date();
         brand.setCreateTime(date);
         brand.setUpdateTime(date);
 
-        Integer num = brandMapper.insert(brand);
+        return brandMapper.insert(brand);
+    }
 
-        return num;
+    @Transactional
+    @Override
+    public Integer updateBrand(@Valid BrandCommand command) {
+        Brand brand = BeanUtils.copyProperties(command, Brand.class);
+        brand.setUpdateBy("PQW");
+        brand.setUpdateTime(new Date());
+
+        return brandMapper.updateById(brand);
     }
 }

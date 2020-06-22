@@ -1,38 +1,29 @@
-package com.sso.goods.entity;
+package com.sso.goods.entity.command;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
-import java.util.Date;
-
+import com.sso.common.command.BaseCommand;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-/**
- * <p>
- * 商品类目
- * </p>
- *
- * @author panqw
- * @since 2020-06-01
- */
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class Category implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class CategoryCommand extends BaseCommand{
 
     /**
-     * 分类ID
+     * 商品分类id
      */
-    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
      * 分类名称
      */
+    @NotNull
     private String name;
 
     /**
@@ -56,7 +47,7 @@ public class Category implements Serializable {
     private Integer seq;
 
     /**
-     * 上级ID
+     * 上级ID,  0 顶级分类
      */
     private Integer parentId;
 
@@ -64,21 +55,5 @@ public class Category implements Serializable {
      * 模板ID
      */
     private Integer templateId;
-
-    /**
-     *创建时间
-     */
-    private String createBy;
-    /**
-     *创建时间
-     */
-    private Date createTime;
-
-    private String updateBy;
-
-    private Date updateTime;
-
-    private String isDeleted;
-
 
 }
