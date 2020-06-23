@@ -37,6 +37,11 @@ public class CategoryCommand extends BaseCommand{
     private String isShow;
 
     /**
+     * 商品分类级别
+     */
+    private Integer levelType;
+
+    /**
      * 是否导航
      */
     private String isMenu;

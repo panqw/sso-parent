@@ -10,4 +10,30 @@
         AND name = #{name}
         </if>
     </select>
+
+    <select id="selectCategoryList" parameterType="com.sso.goods.entity.command.CategoryCommand"
+            resultType="com.sso.goods.entity.Category">
+        SELECT id,name,goods_num,is_show,level_type,is_menu,seq,parent_id,template_id
+        FROM tb_category
+        WHERE is_deleted=0
+        <if test="parent_id !=null ">
+            AND parent_id=#{parentId}
+        </if>
+        <if test="id !=null ">
+            AND id=#{id}
+        </if>
+        <if test="name !=null and name !=''">
+            AND name LIKE CONCAT('%',#{name},'%')
+        </if>
+        ORDER BY seq ASC
+    </select>
+
+    <select id="selectListByParentId" resultType="com.sso.goods.entity.Category">
+        SELECT id,name,parent_id
+        FROM tb_category
+        WHERE is_deleted=0
+        <if test="parentId !=null ">
+            AND parent_id=#{parentId}
+        </if>
+    </select>
 </mapper>

@@ -46,6 +46,11 @@ public class Category implements Serializable {
     private String isShow;
 
     /**
+     * 商品分类级别
+     */
+    private Integer levelType;
+
+    /**
      * 是否导航
      */
     private String isMenu;
@@ -78,7 +83,7 @@ public class Category implements Serializable {
 
     private Date updateTime;
 
-    private String isDeleted;
+    private Integer isDeleted;
 
 
 }
