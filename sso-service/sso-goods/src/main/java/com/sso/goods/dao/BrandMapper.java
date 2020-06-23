@@ -3,6 +3,7 @@ package com.sso.goods.dao;
 import com.sso.common.command.BaseCommand;
 import com.sso.goods.entity.Brand;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.sso.goods.entity.vo.BrandVo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,5 +19,5 @@ import java.util.List;
 @Repository
 public interface BrandMapper extends BaseMapper<Brand> {
 
-    List<Brand> queryBrandList(BaseCommand baseCommand);
+    List<BrandVo> queryBrandList(BaseCommand baseCommand);
 }

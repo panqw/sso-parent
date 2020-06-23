@@ -1,14 +1,12 @@
 package com.sso.goods.entity.command;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+
 import com.sso.common.command.BaseCommand;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+
 
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -23,7 +21,6 @@ public class CategoryCommand extends BaseCommand{
     /**
      * 分类名称
      */
-    @NotNull
     private String name;
 
     /**

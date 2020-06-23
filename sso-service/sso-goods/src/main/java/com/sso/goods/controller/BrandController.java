@@ -1,14 +1,13 @@
 package com.sso.goods.controller;
 
 
-import com.sso.common.command.BaseCommand;
+
 import com.sso.common.entity.Result;
 import com.sso.common.entity.StatusCode;
-import com.sso.common.exception.GlobalExecption;
 import com.sso.goods.entity.Brand;
 import com.sso.goods.entity.command.BrandCommand;
+import com.sso.goods.entity.vo.BrandVo;
 import com.sso.goods.service.BrandService;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,7 +29,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/brand")
 public class BrandController {
-
     @Autowired
     private BrandService brandService;
 
@@ -38,7 +36,7 @@ public class BrandController {
     @PostMapping("/findBrandList")
     public Result findBrandList(@RequestBody BrandCommand command){
 
-        List<Brand> brandList = brandService.findBrandList(command);
+        List<BrandVo> brandList = brandService.findBrandList(command);
         return new Result(true, StatusCode.OK,"success",brandList);
     }
 

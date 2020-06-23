@@ -4,6 +4,7 @@ import com.sso.common.command.BaseCommand;
 import com.sso.goods.entity.Brand;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.sso.goods.entity.command.BrandCommand;
+import com.sso.goods.entity.vo.BrandVo;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -22,7 +23,7 @@ public interface BrandService extends IService<Brand> {
      * @param baseCommand
      * @return
      */
-    List<Brand> findBrandList(BrandCommand baseCommand);
+    List<BrandVo> findBrandList(BrandCommand baseCommand);
 
     Brand findById(Integer id);
 

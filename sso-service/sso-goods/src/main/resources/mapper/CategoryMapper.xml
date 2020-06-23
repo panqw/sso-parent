@@ -16,7 +16,7 @@
         SELECT id,name,goods_num,is_show,level_type,is_menu,seq,parent_id,template_id
         FROM tb_category
         WHERE is_deleted=0
-        <if test="parent_id !=null ">
+        <if test="parentId !=null ">
             AND parent_id=#{parentId}
         </if>
         <if test="id !=null ">

@@ -7,6 +7,7 @@ import com.sso.common.utils.BeanUtils;
 import com.sso.goods.entity.Brand;
 import com.sso.goods.dao.BrandMapper;
 import com.sso.goods.entity.command.BrandCommand;
+import com.sso.goods.entity.vo.BrandVo;
 import com.sso.goods.service.BrandService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand> implements
      * @return
      */
     @Override
-    public List<Brand> findBrandList(BrandCommand command) {
+    public List<BrandVo> findBrandList(BrandCommand command) {
         PageHelper.startPage(command.getPage(), command.getRows());
         return brandMapper.queryBrandList(command);
     }
