@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-06-01
  */
 @Service
-public class TbSkuServiceImpl extends ServiceImpl<SkuMapper, Sku> implements SkuService {
+public class SkuServiceImpl extends ServiceImpl<SkuMapper, Sku> implements SkuService {
 
 }

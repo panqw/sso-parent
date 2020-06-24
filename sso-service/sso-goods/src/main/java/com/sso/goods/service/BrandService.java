@@ -1,6 +1,7 @@
 package com.sso.goods.service;
 
 import com.sso.common.command.BaseCommand;
+import com.sso.common.entity.PageResult;
 import com.sso.goods.entity.Brand;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.sso.goods.entity.command.BrandCommand;
@@ -23,7 +24,7 @@ public interface BrandService extends IService<Brand> {
      * @param baseCommand
      * @return
      */
-    List<BrandVo> findBrandList(BrandCommand baseCommand);
+    PageResult<BrandVo> findBrandList(BrandCommand baseCommand);
 
     Brand findById(Integer id);
 

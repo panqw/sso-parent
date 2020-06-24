@@ -2,6 +2,7 @@ package com.sso.goods.controller;
 
 
 
+import com.sso.common.entity.PageResult;
 import com.sso.common.entity.Result;
 import com.sso.common.entity.StatusCode;
 import com.sso.goods.entity.Brand;
@@ -34,10 +35,9 @@ public class BrandController {
 
 
     @PostMapping("/findBrandList")
-    public Result findBrandList(@RequestBody BrandCommand command){
+    public PageResult<BrandVo> findBrandList(@RequestBody BrandCommand command) {
 
-        List<BrandVo> brandList = brandService.findBrandList(command);
-        return new Result(true, StatusCode.OK,"success",brandList);
+        return brandService.findBrandList(command);
     }
 
     @PostMapping("/findById")

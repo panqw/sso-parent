@@ -2,6 +2,9 @@ package com.sso.goods.service.impl;
 
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.sso.common.entity.PageResult;
+import com.sso.common.entity.StatusCode;
 import com.sso.common.exception.GlobalExecption;
 import com.sso.common.utils.BeanUtils;
 import com.sso.goods.entity.Brand;
@@ -38,9 +41,17 @@ public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand> implements
      * @return
      */
     @Override
-    public List<BrandVo> findBrandList(BrandCommand command) {
+    public PageResult<BrandVo> findBrandList(BrandCommand command) {
+
         PageHelper.startPage(command.getPage(), command.getRows());
-        return brandMapper.queryBrandList(command);
+        List<BrandVo> brandList = brandMapper.queryBrandList(command);
+        PageInfo<BrandVo> pageInfo = new PageInfo<>(brandList);
+
+        PageResult<BrandVo> pageResult = new PageResult<>();
+        pageResult.setCount(pageInfo.getTotal());
+        pageResult.setData(brandList);
+        pageResult.setCode(StatusCode.OK);
+        return pageResult;
     }
 
     /**
