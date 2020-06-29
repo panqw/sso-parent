@@ -1,11 +1,13 @@
 package com.sso.goods.controller;
 
 
+import com.sso.common.entity.PageResult;
 import com.sso.common.entity.Result;
 import com.sso.common.entity.StatusCode;
 import com.sso.common.exception.GlobalExecption;
 import com.sso.goods.entity.Template;
 import com.sso.goods.entity.command.TemplateCommand;
+import com.sso.goods.entity.search.TemplateSearch;
 import com.sso.goods.service.TemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -53,5 +55,13 @@ public class TemplateController {
             throw new GlobalExecption("删除失败");
         }
         return new Result(true,StatusCode.OK,"删除成功");
+    }
+
+    /**
+     * 分页列表查询
+     */
+    @PostMapping("/findTemplateList")
+    public PageResult findTemplateList(@RequestBody TemplateSearch search ){
+       return templateService.findTemplateList(search);
     }
 }

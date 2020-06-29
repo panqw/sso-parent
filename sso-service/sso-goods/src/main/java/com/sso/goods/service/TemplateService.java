@@ -1,10 +1,10 @@
 package com.sso.goods.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.sso.common.entity.PageResult;
 import com.sso.goods.entity.Template;
 import com.sso.goods.entity.command.TemplateCommand;
-
-import javax.validation.Valid;
+import com.sso.goods.entity.search.TemplateSearch;
 
 /**
  * <p>
@@ -22,5 +22,5 @@ public interface TemplateService extends IService<Template> {
 
     Integer deleteTemplate(Integer id);
 
-
+    PageResult findTemplateList(TemplateSearch search);
 }

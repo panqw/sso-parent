@@ -1,10 +1,15 @@
 package com.sso.goods.service.impl;
 
+import com.sso.common.utils.BeanUtils;
 import com.sso.goods.dao.SpecMapper;
 import com.sso.goods.entity.Spec;
+import com.sso.goods.entity.command.SpecCommand;
 import com.sso.goods.service.SpecService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 /**
  * <p>
@@ -17,4 +22,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class SpecServiceImpl extends ServiceImpl<SpecMapper, Spec> implements SpecService {
 
+    @Autowired
+    private SpecMapper specMapper;
+
+    @Override
+    public Integer addSpec(SpecCommand command) {
+
+        Spec spec = BeanUtils.copyProperties(command, Spec.class);
+        spec.setCreateBy("PQW");
+        spec.setUpdateBy("PQW");
+        Date date = new Date();
+        spec.setCreateTime(date);
+        spec.setUpdateTime(date);
+        return specMapper.insert(spec);
+    }
 }

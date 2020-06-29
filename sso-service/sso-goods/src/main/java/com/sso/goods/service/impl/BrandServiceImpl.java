@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * <p>
@@ -62,9 +63,7 @@ public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand> implements
     @Override
     public Brand findById(Integer id) {
         Brand brand = brandMapper.selectById(id);
-        if (brand == null) {
-            throw new GlobalExecption("无此品牌");
-        }
+        Optional.ofNullable(brand).orElseThrow(()->new GlobalExecption("无此品牌"));
         return brand;
     }
 

@@ -2,6 +2,7 @@ package com.sso.goods.service;
 
 import com.sso.goods.entity.Spec;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.sso.goods.entity.command.SpecCommand;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface SpecService extends IService<Spec> {
 
+    Integer addSpec(SpecCommand command);
 }
