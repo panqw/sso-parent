@@ -13,6 +13,6 @@
         <if test="name !=null and name !=''">
             AND name LIKE CONCAT('%',#{name},'%')
         </if>
-        ORDER BY DESC
+        ORDER BY update_time DESC
     </select>
 </mapper>

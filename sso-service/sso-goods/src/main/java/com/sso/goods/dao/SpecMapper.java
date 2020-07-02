@@ -2,6 +2,9 @@ package com.sso.goods.dao;
 
 import com.sso.goods.entity.Spec;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.sso.goods.entity.search.SpecSearch;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface SpecMapper extends BaseMapper<Spec> {
 
+    List<Spec> findSpecList(SpecSearch search);
 }

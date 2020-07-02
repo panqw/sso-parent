@@ -17,6 +17,13 @@ spring:
     url: jdbc:mysql://localhost:3306/goods?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&serverTimezone=UTC
     username: root
     password: admin
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirms: true
+    publisher-returns: true
 
 eureka:
    instance:
