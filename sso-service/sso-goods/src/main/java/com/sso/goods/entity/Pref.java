@@ -27,7 +27,7 @@ public class Pref implements Serializable {
      * ID
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Long id;
 
     /**
      * 分类ID

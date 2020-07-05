@@ -1,6 +1,7 @@
 package com.sso.goods.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -26,8 +27,8 @@ public class Spu implements Serializable {
     /**
      * 主键
      */
-    @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    @TableId(value = "id", type = IdType.INPUT)
+    private Long id;
 
     /**
      * 货号
@@ -124,15 +125,28 @@ public class Spu implements Serializable {
      */
     private String isEnableSpec;
 
-    /**
-     * 是否删除
-     */
-    private String isDelete;
 
     /**
      * 审核状态
      */
     private String status;
+
+    /**
+     *创建时间
+     */
+    private String createBy;
+    /**
+     *创建时间
+     */
+    private Date createTime;
+
+    private String updateBy;
+
+    private Date updateTime;
+
+    private Integer isDeleted;
+
+
 
 
 }

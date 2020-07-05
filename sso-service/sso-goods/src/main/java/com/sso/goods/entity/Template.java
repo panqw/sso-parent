@@ -28,7 +28,7 @@ public class Template implements Serializable {
      * ID
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Long id;
 
     /**
      * 模板名称

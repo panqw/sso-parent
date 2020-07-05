@@ -26,12 +26,12 @@ public class CategoryBrand implements Serializable {
      * 分类ID
      */
     @TableId(value = "category_id", type = IdType.AUTO)
-    private Integer categoryId;
+    private Long categoryId;
 
     /**
      * 品牌ID
      */
-    private Integer brandId;
+    private Long brandId;
 
 
 }

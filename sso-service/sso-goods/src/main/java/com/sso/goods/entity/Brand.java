@@ -28,7 +28,7 @@ public class Brand implements Serializable {
      * 品牌id
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Long id;
 
     /**
      * 品牌名称

@@ -1,7 +1,11 @@
 package com.sso.goods.service;
 
+import com.sso.common.entity.PageResult;
+import com.sso.common.entity.Result;
 import com.sso.goods.entity.Spu;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.sso.goods.entity.command.GoodsCommand;
+import com.sso.goods.entity.search.GoodsSearch;
 
 /**
  * <p>
@@ -13,4 +17,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface SpuService extends IService<Spu> {
 
+    Result addGoods(GoodsCommand command);
+
+    PageResult findGoodsList(GoodsSearch search);
 }

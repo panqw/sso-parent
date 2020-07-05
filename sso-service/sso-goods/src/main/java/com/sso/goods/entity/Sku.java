@@ -1,5 +1,6 @@
 package com.sso.goods.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
@@ -27,8 +28,8 @@ public class Sku implements Serializable {
     /**
      * 商品id
      */
-    @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    @TableId(value = "id", type = IdType.INPUT)
+    private Long id;
 
     /**
      * 商品条码
@@ -43,7 +44,7 @@ public class Sku implements Serializable {
     /**
      * 价格（分）
      */
-    private Integer price;
+    private BigDecimal price;
 
     /**
      * 库存数量
@@ -83,12 +84,12 @@ public class Sku implements Serializable {
     /**
      * SPUID
      */
-    private String spuId;
+    private Long spuId;
 
     /**
      * 类目ID
      */
-    private Integer categoryId;
+    private Long categoryId;
 
     /**
      * 类目名称
