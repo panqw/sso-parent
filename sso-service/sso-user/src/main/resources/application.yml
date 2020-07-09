@@ -4,14 +4,14 @@ spring:
   application:
     name: user
   datasource:
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/user?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&serverTimezone=UTC
-      username: root
-      password: admin
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://121.41.226.173:3306/user?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&serverTimezone=UTC
+    username: root
+    password: root
 
 eureka:
-   instance:
-     prefer-ip-address: true
-   client:
-     service-url:
-       defaultZone:  http://127.0.0.1:9200/eureka/
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone:  http://127.0.0.1:9200/eureka/

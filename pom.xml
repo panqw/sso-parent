@@ -12,7 +12,6 @@
         <module>sso-oauth</module>
         <module>sso-registry</module>
         <module>sso-common</module>
-        <module>sso-inventory</module>
         <module>sso-gateway</module>
         <module>sso-file</module>
         <module>sso-service</module>
