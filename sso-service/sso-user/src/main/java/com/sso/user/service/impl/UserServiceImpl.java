@@ -50,4 +50,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         return userMapper.insert(newUser);
     }
+
+    @Override
+    public User findAllId(int id) {
+        return userMapper.findAllId(id);
+    }
+
+
 }

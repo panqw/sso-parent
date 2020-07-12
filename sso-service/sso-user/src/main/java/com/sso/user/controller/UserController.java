@@ -31,6 +31,11 @@ public class UserController {
         return userService.findById(username);
     }
 
+    @GetMapping("/findAllId")
+    public User findAllId(@RequestParam("id")String id){
+        return userService.findAllId(Integer.parseInt(id));
+    }
+
     /**
      * 用户注册
      */

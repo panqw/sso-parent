@@ -17,4 +17,6 @@ public interface UserService extends IService<User> {
     User findById(String username);
 
     int register(UserCommand command);
+
+    User findAllId(int id);
 }
