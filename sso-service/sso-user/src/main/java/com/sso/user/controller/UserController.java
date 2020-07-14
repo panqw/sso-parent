@@ -5,11 +5,13 @@ import com.sso.common.entity.Result;
 import com.sso.common.entity.StatusCode;
 import com.sso.user.model.User;
 import com.sso.user.model.command.UserCommand;
+import com.sso.user.model.information.UserInformation;
 import com.sso.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * <p>
@@ -32,7 +34,7 @@ public class UserController {
     }
 
     @GetMapping("/findAllId")
-    public User findAllId(@RequestParam("id")String id){
+    public List<User> findAllId(@RequestParam("id")String id){
         return userService.findAllId(Integer.parseInt(id));
     }
 

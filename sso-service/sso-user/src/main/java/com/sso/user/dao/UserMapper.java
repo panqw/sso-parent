@@ -2,7 +2,11 @@ package com.sso.user.dao;
 
 import com.sso.user.model.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.sso.user.model.information.UserInformation;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * <p>
@@ -14,5 +18,5 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public interface UserMapper extends BaseMapper<User> {
-    User findAllId(int id);
+    List<User> findAllId(int id);
 }

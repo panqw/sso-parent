@@ -3,6 +3,9 @@ package com.sso.user.service;
 import com.sso.user.model.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.sso.user.model.command.UserCommand;
+import com.sso.user.model.information.UserInformation;
+
+import java.util.List;
 
 /**
  * <p>
@@ -18,5 +21,7 @@ public interface UserService extends IService<User> {
 
     int register(UserCommand command);
 
-    User findAllId(int id);
+    List<User> findAllId(int id);
+
+
 }

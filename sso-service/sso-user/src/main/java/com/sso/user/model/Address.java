@@ -22,8 +22,8 @@ public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    @TableId(value = "user_id", type = IdType.AUTO)
+    private Integer user_id;
 
     /**
      * 用户名
