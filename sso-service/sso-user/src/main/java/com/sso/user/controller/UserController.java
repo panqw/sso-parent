@@ -1,11 +1,12 @@
 package com.sso.user.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.github.pagehelper.PageInfo;
 import com.sso.common.entity.Result;
 import com.sso.common.entity.StatusCode;
 import com.sso.user.model.User;
 import com.sso.user.model.command.UserCommand;
-import com.sso.user.model.information.UserInformation;
 import com.sso.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,9 +34,35 @@ public class UserController {
         return userService.findById(username);
     }
 
+    /**
+     * 根据id查询
+     * @param id
+     * @return
+     */
     @GetMapping("/findAllId")
     public List<User> findAllId(@RequestParam("id")String id){
         return userService.findAllId(Integer.parseInt(id));
+    }
+
+    /**
+     * 查询所有用户
+     * @param user
+     * @return
+     */
+    @GetMapping("/UserList")
+    public List<User> userList(User user){
+        return userService.userList(user);
+    }
+
+
+    /**
+     * 分页查询
+     */
+    @PostMapping(value = "/findPage/{page}/{size}" )
+    public Result<PageInfo> findPage(@RequestBody(required = false) User user, @PathVariable  int page, @PathVariable  int size){
+        //执行搜索
+        PageInfo<User> pageInfo = userService.findPage(user, page, size);
+        return new Result(true,StatusCode.OK,"查询成功",pageInfo);
     }
 
     /**

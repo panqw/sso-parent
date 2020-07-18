@@ -1,9 +1,11 @@
 package com.sso.user.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.github.pagehelper.PageInfo;
 import com.sso.user.model.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.sso.user.model.command.UserCommand;
-import com.sso.user.model.information.UserInformation;
+
 
 import java.util.List;
 
@@ -22,6 +24,10 @@ public interface UserService extends IService<User> {
     int register(UserCommand command);
 
     List<User> findAllId(int id);
+
+    List<User> userList(User user);
+
+    PageInfo<User> findPage(User user, int page, int size);
 
 
 }
