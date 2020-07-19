@@ -29,5 +29,5 @@ public interface UserService extends IService<User> {
 
     PageInfo<User> findPage(User user, int page, int size);
 
-
+    void upDate(User user);
 }

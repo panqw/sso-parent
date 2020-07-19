@@ -78,4 +78,14 @@ public class UserController {
         return new Result(true, StatusCode.OK,"注册成功");
     }
 
+    /**
+     *修改用户信息
+     */
+
+    @PutMapping(value="/{id}")
+    public Result upDate(@RequestBody User user,@PathVariable Integer id){
+        user.setId(id);
+        userService.upDate(user);
+        return new Result(true,StatusCode.OK,"修改成功");
+    }
 }

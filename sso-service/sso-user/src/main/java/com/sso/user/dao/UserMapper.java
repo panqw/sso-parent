@@ -25,5 +25,6 @@ public interface UserMapper extends BaseMapper<User> {
     //查询所有的用户信息
     List<User> userList(User user);
 
-
+    //修改用户信息
+    void upDate(User user);
 }

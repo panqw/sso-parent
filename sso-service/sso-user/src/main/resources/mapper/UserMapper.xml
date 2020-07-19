@@ -42,6 +42,9 @@
     <select id="userList" resultType="com.sso.user.model.User">
         select user.id,user.username,user.nick_name,user.user_level from tb_user user
     </select>
-
-
+    <!--修改用户-->
+    <update id="upDate" parameterType="com.sso.user.model.User">
+        update tb_user set password=#{password},phone=#{phone},email=#{email},nick_name=#{nickName},name=#{name},status=#{status},
+        qq=#{qq},sex=#{sex},birthday=#{birthday} where id=#{id}
+    </update>
 </mapper>

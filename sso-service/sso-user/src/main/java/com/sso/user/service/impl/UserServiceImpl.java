@@ -96,5 +96,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return new PageInfo<User>(users);
     }
 
-
+    @Override
+    public void upDate(User user) {
+        userMapper.upDate(user);
+    }
 }
