@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-jfinal" />
+    <file type="web" url="file://$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-nutz" />
+    <file type="web" url="file://$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-spring" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/changgou_common/pom.xml" />
+        <option value="$PROJECT_DIR$/sso-job/xxl-job-admin/pom.xml" />
+        <option value="$PROJECT_DIR$/sso-job/xxl-job-core/pom.xml" />
+        <option value="$PROJECT_DIR$/sso-job/xxl-job-executor-samples/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

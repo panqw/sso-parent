@@ -32,5 +32,20 @@ eureka:
      service-url:
        defaultZone:  http://127.0.0.1:9200/eureka/
 
+# 定时任务
+xxl:
+  job:
+    accessToken: ''
+    admin:
+      addresses: http://127.0.0.1:8080/xxl-job-admin
+    executor:
+      address: ''
+      appname: goods
+      ip: ''
+      logpath: /data/applogs/xxl-job/jobhandler
+      logretentiondays: 30
+      port: 9999
+
+
 
 
