@@ -12,10 +12,17 @@
         <module name="sso-file" />
         <module name="sso-gateway" />
         <module name="sso-goods" />
-        <module name="sso-inventory" />
         <module name="sso-oauth" />
         <module name="sso-registry" />
         <module name="sso-user" />
+        <module name="xxl-job-admin" />
+        <module name="xxl-job-core" />
+        <module name="xxl-job-executor-sample-frameless" />
+        <module name="xxl-job-executor-sample-jboot" />
+        <module name="xxl-job-executor-sample-jfinal" />
+        <module name="xxl-job-executor-sample-nutz" />
+        <module name="xxl-job-executor-sample-spring" />
+        <module name="xxl-job-executor-sample-springboot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,6 +32,7 @@
       <module name="sso-gateway" target="1.8" />
       <module name="sso-goods" target="1.8" />
       <module name="sso-inventory" target="1.8" />
+      <module name="sso-job" target="1.8" />
       <module name="sso-oauth" target="1.8" />
       <module name="sso-parent" target="1.8" />
       <module name="sso-registry" target="1.8" />
@@ -32,6 +40,15 @@
       <module name="sso-spring" target="1.8" />
       <module name="sso-user" target="1.8" />
       <module name="sso_common" target="1.5" />
+      <module name="xxl-job-admin" target="1.8" />
+      <module name="xxl-job-core" target="1.8" />
+      <module name="xxl-job-executor-sample-frameless" target="1.8" />
+      <module name="xxl-job-executor-sample-jboot" target="1.8" />
+      <module name="xxl-job-executor-sample-jfinal" target="1.8" />
+      <module name="xxl-job-executor-sample-nutz" target="1.8" />
+      <module name="xxl-job-executor-sample-spring" target="1.8" />
+      <module name="xxl-job-executor-sample-springboot" target="1.8" />
+      <module name="xxl-job-executor-samples" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
