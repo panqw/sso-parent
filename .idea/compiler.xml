@@ -16,6 +16,8 @@
         <module name="sso-oauth" />
         <module name="sso-registry" />
         <module name="sso-user" />
+        <module name="xxl-job-admin" />
+        <module name="xxl-job-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

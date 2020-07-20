@@ -13,6 +13,8 @@
       <module fileurl="file://$PROJECT_DIR$/sso-registry/sso-registry.iml" filepath="$PROJECT_DIR$/sso-registry/sso-registry.iml" />
       <module fileurl="file://$PROJECT_DIR$/sso-service/sso-service.iml" filepath="$PROJECT_DIR$/sso-service/sso-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/sso-service/sso-user/sso-user.iml" filepath="$PROJECT_DIR$/sso-service/sso-user/sso-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sso-job/xxl-job-admin/xxl-job-admin.iml" filepath="$PROJECT_DIR$/sso-job/xxl-job-admin/xxl-job-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sso-job/xxl-job-core/xxl-job-core.iml" filepath="$PROJECT_DIR$/sso-job/xxl-job-core/xxl-job-core.iml" />
     </modules>
   </component>
 </project>

@@ -18,8 +18,6 @@
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/sso-job/xxl-job-admin/pom.xml" />
-        <option value="$PROJECT_DIR$/sso-job/xxl-job-core/pom.xml" />
         <option value="$PROJECT_DIR$/sso-job/xxl-job-executor-samples/pom.xml" />
         <option value="$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-frameless/pom.xml" />
         <option value="$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-jboot/pom.xml" />
