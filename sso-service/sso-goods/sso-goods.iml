@@ -190,7 +190,7 @@
     <orderEntry type="library" name="Maven: org.springframework.retry:spring-retry:1.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.rabbitmq:amqp-client:5.4.3" level="project" />
     <orderEntry type="library" name="Maven: cn.hutool:hutool-all:4.5.0" level="project" />
-    <orderEntry type="module" module-name="xxl-job-core" />
+    <orderEntry type="library" name="Maven: com.sso:xxl-job-core:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.36.Final" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.5" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy:2.5.7" level="project" />

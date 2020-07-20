@@ -6,21 +6,13 @@
       <module fileurl="file://$PROJECT_DIR$/sso-file/sso-file.iml" filepath="$PROJECT_DIR$/sso-file/sso-file.iml" />
       <module fileurl="file://$PROJECT_DIR$/sso-gateway/sso-gateway.iml" filepath="$PROJECT_DIR$/sso-gateway/sso-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/sso-service/sso-goods/sso-goods.iml" filepath="$PROJECT_DIR$/sso-service/sso-goods/sso-goods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sso-inventory/sso-inventory.iml" filepath="$PROJECT_DIR$/sso-inventory/sso-inventory.iml" />
       <module fileurl="file://$PROJECT_DIR$/sso-job/sso-job.iml" filepath="$PROJECT_DIR$/sso-job/sso-job.iml" />
       <module fileurl="file://$PROJECT_DIR$/sso-oauth/sso-oauth.iml" filepath="$PROJECT_DIR$/sso-oauth/sso-oauth.iml" />
       <module fileurl="file://$PROJECT_DIR$/sso-parent.iml" filepath="$PROJECT_DIR$/sso-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/sso-registry/sso-registry.iml" filepath="$PROJECT_DIR$/sso-registry/sso-registry.iml" />
       <module fileurl="file://$PROJECT_DIR$/sso-service/sso-service.iml" filepath="$PROJECT_DIR$/sso-service/sso-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/sso-service/sso-user/sso-user.iml" filepath="$PROJECT_DIR$/sso-service/sso-user/sso-user.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sso-job/xxl-job-admin/xxl-job-admin.iml" filepath="$PROJECT_DIR$/sso-job/xxl-job-admin/xxl-job-admin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sso-job/xxl-job-core/xxl-job-core.iml" filepath="$PROJECT_DIR$/sso-job/xxl-job-core/xxl-job-core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-frameless/xxl-job-executor-sample-frameless.iml" filepath="$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-frameless/xxl-job-executor-sample-frameless.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-jboot/xxl-job-executor-sample-jboot.iml" filepath="$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-jboot/xxl-job-executor-sample-jboot.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-jfinal/xxl-job-executor-sample-jfinal.iml" filepath="$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-jfinal/xxl-job-executor-sample-jfinal.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-nutz/xxl-job-executor-sample-nutz.iml" filepath="$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-nutz/xxl-job-executor-sample-nutz.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-spring/xxl-job-executor-sample-spring.iml" filepath="$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-spring/xxl-job-executor-sample-spring.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-springboot/xxl-job-executor-sample-springboot.iml" filepath="$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-sample-springboot/xxl-job-executor-sample-springboot.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-samples.iml" filepath="$PROJECT_DIR$/sso-job/xxl-job-executor-samples/xxl-job-executor-samples.iml" />
     </modules>
   </component>
 </project>

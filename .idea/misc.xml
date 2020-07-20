@@ -13,11 +13,11 @@
         <option value="$PROJECT_DIR$/sso-job/xxl-job-admin/pom.xml" />
         <option value="$PROJECT_DIR$/sso-job/xxl-job-core/pom.xml" />
         <option value="$PROJECT_DIR$/sso-job/xxl-job-executor-samples/pom.xml" />
+        <option value="$PROJECT_DIR$/sso-job/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/sso-job/pom.xml" />
         <option value="$PROJECT_DIR$/sso-job/xxl-job-admin/pom.xml" />
         <option value="$PROJECT_DIR$/sso-job/xxl-job-core/pom.xml" />
         <option value="$PROJECT_DIR$/sso-job/xxl-job-executor-samples/pom.xml" />
