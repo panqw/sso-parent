@@ -7,6 +7,7 @@ import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.stereotype.Component;
 
 /**
  * <p>
@@ -16,17 +17,19 @@ import lombok.experimental.Accessors;
  * @author panqw
  * @since 2020-06-19
  */
+@Component
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
     /**
      * 用户名
      */
-    @TableId(value = "username", type = IdType.INPUT)
+
     private String username;
 
     /**
@@ -124,5 +127,7 @@ public class User implements Serializable {
      */
     private LocalDateTime lastLoginTime;
 
+
+    private Address address;
 
 }
