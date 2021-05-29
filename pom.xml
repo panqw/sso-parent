@@ -21,6 +21,8 @@
         <module>proxy</module>
         <module>sso-registry2</module>
         <module>sso-user2</module>
+        <module>sso-ribbon1</module>
+        <module>sso-ribbon2</module>
     </modules>
 
     <parent>
