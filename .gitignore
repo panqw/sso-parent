@@ -20,3 +20,5 @@ sso-service/sso-goods/target/
 sso-service/sso-user/src/main/java/com/sso/user/Singleton.java
 sso-service/sso-user/src/main/resources/ehcache/
 sso-service/sso-user/target/
+!/.idea/encodings.xml
+/.idea/
