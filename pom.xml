@@ -17,6 +17,10 @@
         <module>sso-file</module>
         <module>sso-service</module>
         <module>sso-job</module>
+        <module>untitled</module>
+        <module>proxy</module>
+        <module>sso-registry2</module>
+        <module>sso-user2</module>
     </modules>
 
     <parent>

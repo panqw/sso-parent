@@ -10,10 +10,14 @@ import com.sso.oauth.util.CookieUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.oauth2.common.OAuth2AccessToken;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
@@ -31,6 +35,9 @@ public class UserLoginController {
     private int cookieMaxAge;
     @Autowired
     private UserLoginService userLoginService;
+
+    @Autowired
+    private TokenStore tokenStore;
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public Result login(String username, String password, HttpServletResponse response){
@@ -54,5 +61,21 @@ public class UserLoginController {
 
     private void saveJtiToCookie(String jti, HttpServletResponse response) {
         CookieUtil.addCookie(response,cookieDomain,"/","uid",jti,cookieMaxAge,false);
+    }
+
+    /**
+     * 刷新 token
+     * @param access_token
+     * @param request
+     * @param response
+     */
+    @PostMapping(value = "/oauth/refresh/token", params = "access_token")
+    public void refreshTokenInfo(String access_token, HttpServletRequest request, HttpServletResponse response) {
+         if (StringUtils.isBlank(access_token)){
+             throw new GlobalExecption("access_token不能为空");
+         }
+
+        OAuth2AccessToken oAuth2AccessToken = tokenStore.readAccessToken(access_token);
+
     }
 }

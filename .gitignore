@@ -7,3 +7,16 @@
 *.iml
 *.ipr
 .idea/
+sso-common/target/
+sso-file/target/
+sso-gateway/target/
+sso-inventory1/src/main/java/com/sso/inventory1/request/
+sso-inventory1/src/main/resources/
+sso-inventory1/src/test/
+sso-job/xxl-job-core/target/
+sso-oauth/target/
+sso-registry/target/
+sso-service/sso-goods/target/
+sso-service/sso-user/src/main/java/com/sso/user/Singleton.java
+sso-service/sso-user/src/main/resources/ehcache/
+sso-service/sso-user/target/
