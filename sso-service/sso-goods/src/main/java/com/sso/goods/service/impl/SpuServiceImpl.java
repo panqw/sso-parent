@@ -1,5 +1,6 @@
 package com.sso.goods.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.sso.common.entity.PageResult;
 import com.sso.common.entity.Result;
 import com.sso.common.entity.StatusCode;
@@ -13,12 +14,15 @@ import com.sso.goods.dao.SkuMapper;
 import com.sso.goods.entity.Sku;
 import com.sso.goods.entity.Spu;
 import com.sso.goods.dao.SpuMapper;
+import com.sso.goods.entity.command.CommentCommand;
 import com.sso.goods.entity.command.GoodsCommand;
 import com.sso.goods.entity.search.GoodsSearch;
+import com.sso.goods.entity.vo.CommentVo;
 import com.sso.goods.service.SkuService;
 import com.sso.goods.service.SpuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations;
@@ -27,6 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -100,7 +105,7 @@ public class SpuServiceImpl extends ServiceImpl<SpuMapper, Spu> implements SpuSe
         }
 
         redisTemplate.boundZSetOps("search:" + userId).add(searchParam,System.currentTimeMillis());
-
+        redisTemplate.expire("search:" + userId,10, TimeUnit.DAYS);
         //查一下redis中的总数，超过阈值就删除
 
         Long size = redisTemplate.boundZSetOps("search:" + userId).size();
@@ -113,11 +118,54 @@ public class SpuServiceImpl extends ServiceImpl<SpuMapper, Spu> implements SpuSe
     @Override
     public List<String> getSearch(String userId) {
         //获取搜索历史集合
-        Set<ZSetOperations.TypedTuple> set = redisTemplate.boundZSetOps("search:" + userId).rangeWithScores(0, 9);
-        
+        Set<ZSetOperations.TypedTuple> set = redisTemplate.boundZSetOps("search:" + userId).rangeWithScores(0, 10);
+
         List<String> list1 = set.stream().map(o -> o.getValue().toString()).collect(Collectors.toList());
 
         return list1;
+    }
+
+    /**
+     * 添加评论
+     * @param command
+     */
+    @Override
+    public void addComment(CommentCommand command) {
+        command.setCommentId(String.valueOf(System.currentTimeMillis()));
+        redisTemplate.boundZSetOps("comment:"+command.getSpuId()).add(command,System.currentTimeMillis());
+        redisTemplate.expire("comment:"+command.getSpuId(),1,TimeUnit.DAYS);
+    }
+
+    @Override
+    public List<CommentVo> getComment(CommentCommand command) {
+        //获取redis中的评论列表
+        Set<CommentCommand> comments = redisTemplate.boundZSetOps("comment:" + command.getSpuId()).range((command.getPage() - 1) * command.getSize(), command.getPage() * command.getSize() - 1);
+
+        List<CommentVo> commentVoList = BeanUtils.copyList(new ArrayList<>(comments), CommentVo.class);
+
+        return getCommentVoList(commentVoList);
+    }
+
+    private List<CommentVo> getCommentVoList(List<CommentVo> commentVoList){
+        List<CommentVo> list = new ArrayList<>();
+        for (CommentVo commentVo : commentVoList) {
+            if (StringUtils.isBlank(commentVo.getParentId())){
+                list.add(buildChildren(commentVo,commentVoList));
+            }
+        }
+        return list;
+    }
+
+    private CommentVo buildChildren(CommentVo current, List<CommentVo> nodes) {
+        for (CommentVo node : nodes) {
+            if (StringUtils.equals(current.getCommentId(), node.getParentId())) {
+                if (null == current.getCommentVoList()) {
+                    current.setCommentVoList(new ArrayList<>());
+                }
+                current.getCommentVoList().add(buildChildren(node, nodes));
+            }
+        }
+        return current;
     }
 
     private Long generateGoodsSpu(GoodsCommand command) {
@@ -138,7 +186,6 @@ public class SpuServiceImpl extends ServiceImpl<SpuMapper, Spu> implements SpuSe
     }
 
     private void generateGoodsSku(Long spuId, GoodsCommand command) {
-
         List<Sku> skuList = command.getSkuList();
         skuList.forEach(sku -> sku.setId(snowflakeId.nextId())
                     .setStatus(GoodsOnlineStatus.OFFONLINE.getStatus())

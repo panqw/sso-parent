@@ -2,8 +2,10 @@ package com.sso.goods.controller;
 
 import com.sso.common.entity.PageResult;
 import com.sso.common.entity.Result;
+import com.sso.goods.entity.command.CommentCommand;
 import com.sso.goods.entity.command.GoodsCommand;
 import com.sso.goods.entity.search.GoodsSearch;
+import com.sso.goods.entity.vo.CommentVo;
 import com.sso.goods.service.SkuService;
 import com.sso.goods.service.SpuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +63,22 @@ public class GoodsController {
     @PostMapping("/getSearch")
     public List<String> getSearch(@RequestParam("userId") String userId){
         return spuService.getSearch(userId);
+    }
+
+
+    /**
+     * 添加商品评论
+     */
+    @PostMapping("/addComment")
+    public void addComment(@RequestBody CommentCommand command){
+        spuService.addComment(command);
+    }
+
+    /**
+     * 查看商品评论
+     */
+    @PostMapping("/getComment")
+    public List<CommentVo> getComment(@RequestBody CommentCommand command){
+       return spuService.getComment(command);
     }
 }
