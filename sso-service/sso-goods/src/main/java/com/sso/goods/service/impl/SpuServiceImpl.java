@@ -20,12 +20,14 @@ import com.sso.goods.service.SpuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -50,6 +52,8 @@ public class SpuServiceImpl extends ServiceImpl<SpuMapper, Spu> implements SpuSe
 
    @Autowired
    private SnowflakeIdWork snowflakeId;
+   @Autowired
+   private RedisTemplate redisTemplate;
 
     /**
      * 新增商品
@@ -79,6 +83,41 @@ public class SpuServiceImpl extends ServiceImpl<SpuMapper, Spu> implements SpuSe
 
         spuMapper.findGoodsList(search);
         return null;
+    }
+
+    /**
+     *
+     * @param searchParam
+     * @param userId
+     */
+    @Override
+    public void search(String searchParam, String userId) {
+        //获取搜索内容的分数值看是否在redis中
+        Double score = redisTemplate.boundZSetOps("search:" + userId).score(searchParam);
+        //如果存在就删除redis中的值
+        if (null!= score){
+            redisTemplate.boundZSetOps("search:" + userId).remove(searchParam);
+        }
+
+        redisTemplate.boundZSetOps("search:" + userId).add(searchParam,System.currentTimeMillis());
+
+        //查一下redis中的总数，超过阈值就删除
+
+        Long size = redisTemplate.boundZSetOps("search:" + userId).size();
+        if (size>10){
+            redisTemplate.boundZSetOps("search:" + userId).removeRange(10,size-10);
+        }
+
+    }
+
+    @Override
+    public List<String> getSearch(String userId) {
+        //获取搜索历史集合
+        Set<ZSetOperations.TypedTuple> set = redisTemplate.boundZSetOps("search:" + userId).rangeWithScores(0, 9);
+        
+        List<String> list1 = set.stream().map(o -> o.getValue().toString()).collect(Collectors.toList());
+
+        return list1;
     }
 
     private Long generateGoodsSpu(GoodsCommand command) {

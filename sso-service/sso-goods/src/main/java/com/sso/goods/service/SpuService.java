@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.sso.goods.entity.command.GoodsCommand;
 import com.sso.goods.entity.search.GoodsSearch;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -20,4 +22,8 @@ public interface SpuService extends IService<Spu> {
     Result addGoods(GoodsCommand command);
 
     PageResult findGoodsList(GoodsSearch search);
+
+    void search(String searchParam, String userId);
+
+    List<String> getSearch(String userId);
 }
